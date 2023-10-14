@@ -1,4 +1,4 @@
-package com.example.thursday.data.network
+package com.example.thursday.data.dataSource.remote
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -10,15 +10,9 @@ object Retrofit {
         return retrofitInstance
     }
 
-    private val interceptor = HeaderInterceptor()
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
-        .build()
-
     private val retrofitInstance: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)

@@ -1,5 +1,7 @@
 package com.example.thursday.presentation.models
 
+import androidx.annotation.StringRes
+
 data class MobileUiModel(
-    val brandName: Char
+    @StringRes val brandType: Int
 )

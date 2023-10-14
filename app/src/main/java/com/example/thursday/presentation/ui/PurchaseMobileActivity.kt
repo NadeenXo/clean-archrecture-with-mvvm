@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.thursday.databinding.ActivityPurchaseMobileBinding
 
 class PurchaseMobileActivity : AppCompatActivity() {
-    private val viewModel: ViewModel by lazy { ViewModelProvider(this)[ViewModel::class.java] }
+    private val mobileViewModel: PurchaseMobileViewModel by lazy {
+        ViewModelProvider(this)[PurchaseMobileViewModel::class.java]
+    }
     private lateinit var binding: ActivityPurchaseMobileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,12 +16,9 @@ class PurchaseMobileActivity : AppCompatActivity() {
         binding = ActivityPurchaseMobileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mobileViewModel.mobileBrand.observe(this) {
+            binding.textView.text = mobileViewModel.getMobileBrand().toString()
 
-        viewModel.mobileBrand.observe(this) {
-            binding.textView.text = viewModel.mobileBrand.toString()
-            viewModel.getMobileBrand()
         }
-
-
     }
 }
