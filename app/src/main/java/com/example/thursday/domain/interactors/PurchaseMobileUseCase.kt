@@ -1,12 +1,9 @@
 package com.example.thursday.domain.interactors
 
 import com.example.thursday.domain.repositories.IPurchaseMobileRepo
+import javax.inject.Inject
 
-class PurchaseMobileUseCase(private val purchaseMobileRepo: IPurchaseMobileRepo) {
-
-//    suspend fun getPurchasedMobileDomainModel(): MobileDomainModel {
-//        return purchaseMobileRepo.getPurchasedMobileDomainModel()
-//    }
+class PurchaseMobileUseCase @Inject constructor(private val purchaseMobileRepo: IPurchaseMobileRepo) {
     suspend fun getPurchasedMobileDomainModel() = purchaseMobileRepo.getPurchasedMobileDomainModel()
 
 }

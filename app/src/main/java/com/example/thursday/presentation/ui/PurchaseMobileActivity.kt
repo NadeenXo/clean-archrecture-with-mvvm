@@ -3,10 +3,14 @@ package com.example.thursday.presentation.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.thursday.databinding.ActivityPurchaseMobileBinding
-import org.koin.android.ext.android.inject
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.activity.viewModels
 
+
+@AndroidEntryPoint
 class PurchaseMobileActivity : AppCompatActivity() {
-    private val mobileViewModel: PurchaseMobileViewModel by inject()
+
+    private val mobileViewModel: PurchaseMobileViewModel by viewModels()
     private lateinit var binding: ActivityPurchaseMobileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
