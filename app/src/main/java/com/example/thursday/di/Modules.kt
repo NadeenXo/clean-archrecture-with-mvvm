@@ -1,6 +1,11 @@
 package com.example.thursday.di
 
+import com.example.thursday.data.RepoImp
+import com.example.thursday.data.dataSource.IMobileDataSource
+import com.example.thursday.data.dataSource.local.MobileLocalDataSource
 import com.example.thursday.data.dataSource.remote.ApiService
+import com.example.thursday.data.dataSource.remote.MobileRemoteDataSource
+import com.example.thursday.domain.repositories.IPurchaseMobileRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +20,7 @@ object Modules {
     @Provides
     @Singleton
     fun provideApi(): ApiService {
-        val BASE_URL = ""
+        val BASE_URL = " "
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -23,11 +28,11 @@ object Modules {
             .create(ApiService::class.java)
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideRepository(api: ApiService): IPurchaseMobileRepo {
-//        return RepoImp(api)
-//    }
+    @Provides
+    @Singleton
+    fun provideRepository(mobileRemoteDataSource: MobileRemoteDataSource, mobileLocalDataSource: MobileLocalDataSource): IPurchaseMobileRepo {
+        return RepoImp(mobileRemoteDataSource,mobileLocalDataSource)
+    }
 
 //    @Provides
 //    fun provideUseCase(repoImp: IPurchaseMobileRepo): PurchaseMobileUseCase {

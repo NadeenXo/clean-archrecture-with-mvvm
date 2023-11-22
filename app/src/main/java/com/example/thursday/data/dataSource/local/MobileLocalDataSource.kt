@@ -1,4 +1,6 @@
 package com.example.thursday.data.dataSource.local
 
-class MobileLocalDataSource {
+import javax.inject.Inject
+
+class MobileLocalDataSource @Inject constructor() {
 }
