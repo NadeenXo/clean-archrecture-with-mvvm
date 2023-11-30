@@ -8,4 +8,8 @@ class MobileRemoteDataSource @Inject constructor() : IMobileDataSource {
     override fun getMobileDataModel(): MobileDataModel {
         return MobileDataModel("", 's')
     }
+
+    override fun getMobileDataModel2(): MobileDataModel {
+        return MobileDataModel("", 'i')
+    }
 }
