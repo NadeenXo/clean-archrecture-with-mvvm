@@ -1,7 +1,6 @@
 package com.example.thursday.di
 
 import com.example.thursday.data.RepoImp
-import com.example.thursday.data.dataSource.IMobileDataSource
 import com.example.thursday.data.dataSource.local.MobileLocalDataSource
 import com.example.thursday.data.dataSource.remote.ApiService
 import com.example.thursday.data.dataSource.remote.MobileRemoteDataSource
