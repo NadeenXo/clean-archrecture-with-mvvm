@@ -32,7 +32,7 @@ class PurchaseMobileActivity : AppCompatActivity() {
         mobileViewModel.getMobileBrand()
         mobileViewModel.getBrandName()
 
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             mobileViewModel.screenState.collect { state ->
                 handleScreenState(state)
             }
